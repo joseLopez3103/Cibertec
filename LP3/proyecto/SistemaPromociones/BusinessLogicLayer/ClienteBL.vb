@@ -11,6 +11,12 @@ Public Class ClienteBL
 
     End Function
 
+    Public Function ListarEmpleados() As DataSet
+
+        Return cliente.ListarEmpleados
+
+    End Function
+
     Public Function Filtrar_Facturas(ByVal objeto As BE.ClienteBE) As DataSet
 
         Return cliente.Filtrar_Facturas(objeto)

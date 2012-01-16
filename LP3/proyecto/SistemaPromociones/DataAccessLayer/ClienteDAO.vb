@@ -12,6 +12,35 @@ Public Class ClienteDAO
     Dim bool_resultado As Boolean
     Dim cmd As SqlCommand
 
+    Public Function ListarEmpleados() As DataSet
+        Dim ds As New DataSet
+        Try
+            conexion = cn.Conectar
+
+            da = New SqlDataAdapter("pr_listar_empleados", conexion)
+            da.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            da.Fill(ds, "Empleados")
+
+        Catch ex As Exception
+
+            str_error = ex.Message
+
+        Finally
+
+            'Liberamos recursos
+
+            If conexion.State = ConnectionState.Open Then conexion.Close()
+
+            da.Dispose()
+            ds.Dispose()
+            conexion.Dispose()
+
+        End Try
+
+        Return ds
+    End Function
+
     Public Function ListarClientes() As DataSet
         Dim ds As New DataSet
         Try
