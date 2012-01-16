@@ -26,10 +26,20 @@
                 }
 
                 // bind 'myForm' and provide a simple callback function 
-                $('#contactform').ajaxForm(options);
+                //$('#contactform').ajaxForm(options);
                 /*$('#contactform').ajaxForm(function () {
                     alert("Nueva Promoción ...");
                 });*/
+
+                $('#contactform').submit(function () {
+                    // inside event callbacks 'this' is the DOM element so we first 
+                    // wrap it in a jQuery object and then invoke ajaxSubmit 
+                    $(this).ajaxSubmit(options);
+
+                    // !!! Important !!! 
+                    // always return false to prevent standard browser submit and page navigation 
+                    return false;
+                }); 
 
                 $("#datepicker1").datepicker();
                 $("#datepicker2").datepicker();
@@ -58,35 +68,35 @@
 <body>
    <div class="container">
 
-        <form id="contactform" class="rounded" method="post" action="">
+        <form id="contactform" class="rounded" method="post" action="../admin/core/promotion/new.aspx">
             <h3>Nueva Promoción</h3>
             <div class="field">
 	            <label for="name">Nombre:</label>
-  	            <input type="text" class="input" name="" id="" />
+  	            <input type="text" class="input" name="name" id="" />
 	            <p class="hint">Nombre de la Promoción .</p>
             </div>
 
             <div class="field">
 	            <label for="state">Estado:</label>
-  	            <input type="text" class="input" name="" id="" />
+  	            <input type="text" class="input" name="state" id="" />
 	            <p class="hint">Estado.</p>
             </div>
 
             <div class="field">
 	            <label for="date_init">Fecha Inicio:</label>
-  	            <input type="text" class="input" name="" id="datepicker1" />
+  	            <input type="text" class="input" name="date_init" id="datepicker1" />
 	            <p class="hint">Fecha Inicio.</p>
             </div>
 
             <div class="field">
 	            <label for="date_end">Fecha Fin:</label>
-  	            <input type="text" class="input" name="" id="datepicker2" />
+  	            <input type="text" class="input" name="date_end" id="datepicker2" />
 	            <p class="hint">Fecha Fin.</p>
             </div>
 
             <div class="field">
 	            <label for="description">Descripción:</label>
-  	            <textarea class="input textarea" name="" id=""></textarea>
+  	            <textarea class="input textarea" name="description" id=""></textarea>
 	            <p class="hint">Descripción.</p>
             </div>
 
