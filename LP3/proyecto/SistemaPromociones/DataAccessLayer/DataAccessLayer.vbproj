@@ -46,9 +46,14 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.5.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\UtilsLibrary\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -67,8 +72,10 @@
   <ItemGroup>
     <Compile Include="ClienteDAO.vb" />
     <Compile Include="Conexion.vb" />
+    <Compile Include="Config.vb" />
     <Compile Include="DistritoDAO.vb" />
     <Compile Include="FacturaDAO.vb" />
+    <Compile Include="lib\Utils.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -85,6 +92,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ProductoDAO.vb" />
+    <Compile Include="PromotionDAO.vb" />
     <Compile Include="VendedorDAO.vb" />
   </ItemGroup>
   <ItemGroup>

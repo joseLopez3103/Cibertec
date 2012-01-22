@@ -28,7 +28,7 @@
                 // bind 'myForm' and provide a simple callback function 
                 //$('#contactform').ajaxForm(options);
                 /*$('#contactform').ajaxForm(function () {
-                    alert("Nueva Promoción ...");
+                alert("Nueva Promoción ...");
                 });*/
 
                 $('#contactform').submit(function () {
@@ -39,10 +39,12 @@
                     // !!! Important !!! 
                     // always return false to prevent standard browser submit and page navigation 
                     return false;
-                }); 
+                });
 
-                $("#datepicker1").datepicker();
-                $("#datepicker2").datepicker();
+                $("#datepicker1").datepicker({dateFormat:'yy-mm-dd'}); //yy-mm-dd
+                $("#datepicker2").datepicker({ dateFormat: 'yy-mm-dd' });
+
+               // getContactos();
             });
 
             function showResponse(responseText, statusText, xhr, $form) 
@@ -61,6 +63,43 @@
                 alert('status: ' + statusText + '\n\nresponseText: \n' + responseText +
                     '\n\nThe output div should have already been updated with the responseText.');
             }  
+
+            function getContactos() 
+            { 
+             alert ("getcontactos");
+             $.ajax({
+                 type: "POST",
+                 url: "../admin/core/promotion/all.aspx",
+                 data: "{}",
+                 contentType: "application/json; charset=utf-8",
+                 dataType: "json",
+                 success: function (response) {
+
+                     alert("response " + response + " " + response.d);
+                     // var contactos = (typeof response.d) == 'string' ?
+                     //  eval('(' + response.d + ')') :
+                     //response.d;
+                     var contactos = response;
+                     alert("contactos " + contactos);
+
+                     $('#tablaContactos').empty();
+                     $('#tablaContactos').append('<tr><td><b>ID</b></td><td><b>Nombre</b></td><td><b>Telefono</b></td><td><b>EMail</b></td>' +
+                                                 '</tr>');
+
+                     for (var i = 0; i < contactos.length; i++) {
+                         $('#tablaContactos').append('<tr>' +
+                                            '<td>' + contactos[i].cod + '</td>' +
+                                            '<td>' + contactos[i].nombre + '</td>' +
+                                            '<td>' + contactos[i].estado + '</td>' +
+                                            '<td>' + contactos[i].description + '</td>' +
+                                          '</tr>');
+                     }
+                 },
+                 error: function (result) {
+                     alert('ERROR ' + result.status + ' ' + result.statusText);
+                 }
+             }); 
+              } 
         </script> 
 
     <title></title>
@@ -104,6 +143,9 @@
         </form>
 
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx">Regresar</asp:HyperLink>
+    </div>
+    <div>
+        <table id='tablaContactos'></table> 
     </div>
 </body>
 </html>

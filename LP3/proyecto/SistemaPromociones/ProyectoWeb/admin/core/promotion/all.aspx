@@ -1,0 +1,1 @@
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="all.aspx.vb" Inherits="admin_core_promotion_all" %>
