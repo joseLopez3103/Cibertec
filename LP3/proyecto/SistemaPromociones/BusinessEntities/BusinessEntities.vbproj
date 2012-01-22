@@ -88,6 +88,7 @@
     <Compile Include="ProductoBE.vb" />
     <Compile Include="PromotionBE.vb" />
     <Compile Include="TestBE.vb" />
+    <Compile Include="UserBE.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

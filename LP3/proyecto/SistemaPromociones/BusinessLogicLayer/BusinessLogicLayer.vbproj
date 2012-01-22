@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="ProductoBL.vb" />
     <Compile Include="PromotionBL.vb" />
+    <Compile Include="UserBL.vb" />
     <Compile Include="VendedorBL.vb" />
   </ItemGroup>
   <ItemGroup>

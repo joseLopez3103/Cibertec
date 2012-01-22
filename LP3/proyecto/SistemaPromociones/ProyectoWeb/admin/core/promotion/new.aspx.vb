@@ -13,7 +13,7 @@ Partial Class admin_core_promotion_new
 
         For Each s As String In Request.Form.AllKeys
             ' Response.Write(s & ": " & Request.Form(s) & "<br />")
-            Debug.WriteLine(">> " + Request.Form(s))
+            Debug.WriteLine(">> " + s + " " + Request.Form(s))
         Next
 
         Dim capanegocios As New PromotionBL

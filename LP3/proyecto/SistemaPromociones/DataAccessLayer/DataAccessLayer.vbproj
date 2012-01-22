@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="ProductoDAO.vb" />
     <Compile Include="PromotionDAO.vb" />
+    <Compile Include="UserDAO.vb" />
     <Compile Include="VendedorDAO.vb" />
   </ItemGroup>
   <ItemGroup>
