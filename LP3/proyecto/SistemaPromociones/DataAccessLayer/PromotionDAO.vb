@@ -46,7 +46,6 @@ Public Class PromotionDAO
             cmd.Parameters("@description").Direction = ParameterDirection.Input
             cmd.Parameters("@description").Value = objeto.description
 
-
             Conexion.Open()
 
             cmd.ExecuteNonQuery()

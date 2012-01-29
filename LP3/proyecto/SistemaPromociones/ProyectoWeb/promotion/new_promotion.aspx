@@ -94,9 +94,13 @@
                                             '<td>' + contactos[i].description + '</td>' +
                                           '</tr>');
                      }
+
+                     window.location = "http://www.google.com"
                  },
                  error: function (result) {
                      alert('ERROR ' + result.status + ' ' + result.statusText);
+                  
+
                  }
              }); 
               } 
@@ -143,6 +147,7 @@
         </form>
 
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx">Regresar</asp:HyperLink>
+
     </div>
     <div>
         <table id='tablaContactos'></table> 

@@ -2,6 +2,8 @@
 Imports BusinessEntities
 Imports BusinessLogicLayer
 Imports System.Diagnostics
+Imports System.IO
+
 
 Partial Class admin_core_promotion_new
     Inherits System.Web.UI.Page
@@ -19,7 +21,7 @@ Partial Class admin_core_promotion_new
         Dim capanegocios As New PromotionBL
         Dim be As PromotionBE
         be = New PromotionBE
-        be.cod = 100
+        ' be.cod = 100
         be.nombre = Request.Form("name")
         be.estado = Request.Form("state")
         'Dim finit As String = String.Format("{0:dd/MM/yyyy}", Request.Form("date_init"))
@@ -39,6 +41,9 @@ Partial Class admin_core_promotion_new
                 script += "alert('" & str_mensaje & "');"
                 script += "</script>"
                 Page.ClientScript.RegisterStartupScript(Me.GetType(), "script", script)
+
+                Directory.CreateDirectory(MapPath(".") & "\..\" & "npromotion")
+
 
             Else
 

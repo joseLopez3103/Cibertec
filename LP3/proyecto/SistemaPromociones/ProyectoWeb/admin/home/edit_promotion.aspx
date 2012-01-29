@@ -7,10 +7,45 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
+<div class="container">
+
+        <form id="contactform" class="rounded" method="post" action="../../admin/core/promotion/new.aspx">
+            <h3>Nueva Promoción</h3>
+            <div class="field">
+	            <label for="name">Nombre:</label>
+  	            <input type="text" class="input" name="name" id="" />
+	            <p class="hint">Nombre de la Promoción .</p>
+            </div>
+
+            <div class="field">
+	            <label for="state">Estado:</label>
+  	            <input type="text" class="input" name="state" id="" />
+	            <p class="hint">Estado.</p>
+            </div>
+
+            <div class="field">
+	            <label for="date_init">Fecha Inicio:</label>
+  	            <input type="text" class="input" name="date_init" id="datepicker1" />
+	            <p class="hint">Fecha Inicio.</p>
+            </div>
+
+            <div class="field">
+	            <label for="date_end">Fecha Fin:</label>
+  	            <input type="text" class="input" name="date_end" id="datepicker2" />
+	            <p class="hint">Fecha Fin.</p>
+            </div>
+
+            <div class="field">
+	            <label for="description">Descripción:</label>
+  	            <textarea class="input textarea" name="description" id=""></textarea>
+	            <p class="hint">Descripción.</p>
+            </div>
+
+            <input type="submit" name="Submit"  class="button" value="Crear" />
+        </form>
+
+        <asp:HyperLink ID="HyperLink1" runat="server" 
+            NavigateUrl="~/admin/home/home_admin.aspx">Regresar</asp:HyperLink>
     </div>
-    </form>
 </body>
 </html>
