@@ -89,3 +89,46 @@
         '    capanegocios = Nothing
         '    objeto = Nothing
         'End Try
+
+		        'Dim capanegocios As New ClienteBL
+        'Dim objeto As New BE.ClienteBE
+
+        'Try
+        '    'Llenamos las propiedades de la entidad ClienteBE
+        '    objeto.strcontacto = txtcontacto.Text
+        '    objeto.strdireccion = txtdireccion.Text
+        '    objeto.strdistrito = ddldistrito.SelectedItem.Value
+        '    objeto.strrazon = txtrazon.Text
+        '    objeto.strruc = txtruc.Text
+        '    objeto.strtelefono = txttelefono.Text
+        '    objeto.strtipo = ddltipo.SelectedItem.Value
+
+        '    If capanegocios.InsertarCliente(objeto) = True Then
+
+        '        str_mensaje = "Cliente registrado con éxito"
+        '        Dim script As String = "<script language=Javascript>"
+        '        script += "alert('" & str_mensaje & "');"
+        '        script += "</script>"
+        '        Page.ClientScript.RegisterStartupScript(Me.GetType(), "script", script)
+
+        '    Else
+
+        '        str_mensaje = "No se registró al cliente"
+        '        Dim script As String = "<script language=Javascript>"
+        '        script += "alert('" & str_mensaje & "');"
+        '        script += "</script>"
+        '        Page.ClientScript.RegisterStartupScript(Me.GetType(), "script", script)
+
+        '    End If
+
+
+        'Catch ex As Exception
+        '    str_error = capanegocios.CapturaError
+
+        '    Response.Redirect("Errores.aspx?id=" & str_error)
+        'Finally
+        '    capanegocios = Nothing
+        '    objeto = Nothing
+        'End Try
+
+

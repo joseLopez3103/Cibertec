@@ -86,6 +86,91 @@ Public Class PromotionDAO
 
     End Function
 
+    Public Function saveUrlPromotion(ByVal url As String, ByVal file As String, ByVal cod As Integer) As Boolean
+        Dim b As Boolean = False
+
+        'Instanciamos la clase conexion
+        Dim cn As New Conexion
+        Dim dr As SqlDataReader
+
+        Try
+            conexion = cn.Conectar
+
+            cmd = New SqlCommand(Config.saveUrlPromotion, conexion)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            'Definimos los parámetros de entrada
+            cmd.Parameters.Add(New SqlParameter("@cod", SqlDbType.Int, 10))
+            cmd.Parameters("@cod").Direction = ParameterDirection.Input
+            cmd.Parameters("@cod").Value = cod
+
+            cmd.Parameters.Add(New SqlParameter("@nfolder", SqlDbType.VarChar, 100))
+            cmd.Parameters("@nfolder").Direction = ParameterDirection.Input
+            cmd.Parameters("@nfolder").Value = file
+
+            cmd.Parameters.Add(New SqlParameter("@file", SqlDbType.VarChar, 100))
+            cmd.Parameters("@file").Direction = ParameterDirection.Input
+            cmd.Parameters("@file").Value = url
+
+            conexion.Open()
+            cmd.ExecuteNonQuery()
+
+            Debug.WriteLine("save url OK")
+            b = True
+
+        Catch ex As Exception
+            b = False
+            str_error = ex.Message
+            Debug.WriteLine("error " + str_error)
+        Finally
+
+            If conexion.State = ConnectionState.Open Then conexion.Close()
+            conexion.Dispose()
+            cmd.Dispose()
+            cn = Nothing
+
+        End Try
+        Return b
+    End Function
+
+    Public Function GetPromotionByCod(ByVal objeto As BE.PromotionBE) As BE.PromotionBE
+
+        Dim ds As New DataSet
+        Dim be As BE.PromotionBE = Nothing
+
+        Try
+            conexion = cn.Conectar
+            da = New SqlDataAdapter(Config.getPromotionByCod, conexion)
+            da.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            'Definimos el parámetro
+            da.SelectCommand.Parameters.Add(New SqlParameter("@cod", SqlDbType.Int, 10))
+            da.SelectCommand.Parameters("@cod").Direction = ParameterDirection.Input
+            da.SelectCommand.Parameters("@cod").Value = objeto.cod
+
+            da.Fill(ds, "PromotionCod")
+
+            be = New BE.PromotionBE()
+            be = Utils.DataSetToPromotionBE(ds)
+            Debug.WriteLine("PromotionDAO BE >>> " & be.cod & " " & be.path & " " & be.url_img)
+
+        Catch ex As Exception
+            str_error = ex.Message
+        Finally
+
+            'Liberamos recursos
+            If conexion.State = ConnectionState.Open Then conexion.Close()
+
+            da.Dispose()
+            ds.Dispose()
+            conexion.Dispose()
+            '  be = Nothing
+
+        End Try
+        Return be
+
+    End Function
+
     Public Function ListPromotion() As DataSet
         Dim ds As New DataSet
         Try

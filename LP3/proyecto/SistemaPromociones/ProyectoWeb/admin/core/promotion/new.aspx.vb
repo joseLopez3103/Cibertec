@@ -32,6 +32,9 @@ Partial Class admin_core_promotion_new
         Dim capanegocios As New PromotionBL
         Dim be As PromotionBE
         be = New PromotionBE
+
+        Dim nbe As PromotionBE = New PromotionBE()
+
         ' be.cod = 100
         be.nombre = Request.Form("name")
         be.estado = Request.Form("state")
@@ -58,8 +61,19 @@ Partial Class admin_core_promotion_new
 
                 Dim nfolder As String = MapPath(".") & "\..\..\promotions\" & codGenerate.ToString()
                 Directory.CreateDirectory(nfolder)
-                hpf1.SaveAs(nfolder & "\" & System.IO.Path.GetFileName(hpf1.FileName))
+                Dim nfile As String = nfolder & "\" & System.IO.Path.GetFileName(hpf1.FileName)
+                hpf1.SaveAs(nfile)
 
+                Dim sfolder As String = "/promotions/" & codGenerate.ToString()
+                Dim sfile As String = sfolder & "/" & System.IO.Path.GetFileName(hpf1.FileName)
+
+                saveUrl(sfolder, sfile, codGenerate)
+                ' nbe = New PromotionBE()
+                Dim aux As PromotionBE = New PromotionBE()
+                aux.cod = codGenerate
+
+                nbe = capanegocios.getPromotionbyCod(aux)
+                Debug.WriteLine("new promotion complete " & nbe.cod)
             Else
 
                 str_mensaje = "No se registró la promoción"
@@ -68,58 +82,38 @@ Partial Class admin_core_promotion_new
                 script += "alert('" & str_mensaje & "');"
                 script += "</script>"
                 Page.ClientScript.RegisterStartupScript(Me.GetType(), "script", script)
+                nbe = New PromotionBE()
 
             End If
         Catch ex As Exception
             str_error = capanegocios.CapturaError
-
+            nbe = New PromotionBE()
             Debug.WriteLine(str_error)
         End Try
 
-        'Dim capanegocios As New ClienteBL
-        'Dim objeto As New BE.ClienteBE
+        'Response.Write(be.TO_JSON())
+        If IsNothing(nbe.cod) Then
+            Response.Write(be.TO_JSON())
+        Else
+            Response.Write(nbe.TO_JSON())
+        End If
 
-        'Try
-        '    'Llenamos las propiedades de la entidad ClienteBE
-        '    objeto.strcontacto = txtcontacto.Text
-        '    objeto.strdireccion = txtdireccion.Text
-        '    objeto.strdistrito = ddldistrito.SelectedItem.Value
-        '    objeto.strrazon = txtrazon.Text
-        '    objeto.strruc = txtruc.Text
-        '    objeto.strtelefono = txttelefono.Text
-        '    objeto.strtipo = ddltipo.SelectedItem.Value
+    End Sub
 
-        '    If capanegocios.InsertarCliente(objeto) = True Then
+    Private Sub saveUrl(ByVal nfolder As String, ByVal nfile As String, ByVal code As Integer)
+        'Throw New NotImplementedException
+        Debug.WriteLine("save URL ok")
 
-        '        str_mensaje = "Cliente registrado con éxito"
-        '        Dim script As String = "<script language=Javascript>"
-        '        script += "alert('" & str_mensaje & "');"
-        '        script += "</script>"
-        '        Page.ClientScript.RegisterStartupScript(Me.GetType(), "script", script)
+        Dim capanegocios As New PromotionBL
 
-        '    Else
+        Try
+            If capanegocios.saveUrlPromotion(nfolder, nfile, code) = True Then
 
-        '        str_mensaje = "No se registró al cliente"
-        '        Dim script As String = "<script language=Javascript>"
-        '        script += "alert('" & str_mensaje & "');"
-        '        script += "</script>"
-        '        Page.ClientScript.RegisterStartupScript(Me.GetType(), "script", script)
+            End If
 
-        '    End If
+        Catch ex As Exception
 
-
-        'Catch ex As Exception
-        '    str_error = capanegocios.CapturaError
-
-        '    Response.Redirect("Errores.aspx?id=" & str_error)
-        'Finally
-        '    capanegocios = Nothing
-        '    objeto = Nothing
-        'End Try
-
-
-        Response.Write(be.TO_JSON())
-
+        End Try
     End Sub
 
 End Class

@@ -7,6 +7,8 @@
     Private _date_init As Date
     Private _date_end As Date
     Private _description As String
+    Private _url_img As String
+    Private _path As String
 
     Public Property cod() As Integer
         Get
@@ -59,6 +61,24 @@
         End Get
         Set(ByVal value As String)
             _description = value
+        End Set
+    End Property
+
+    Public Property path() As String
+        Get
+            Return _path
+        End Get
+        Set(ByVal value As String)
+            _path = value
+        End Set
+    End Property
+
+    Public Property url_img() As String
+        Get
+            Return _url_img
+        End Get
+        Set(ByVal value As String)
+            _url_img = value
         End Set
     End Property
 

@@ -22,7 +22,7 @@
 
                 var ndata = null;
                 $(document).ready(function () {
-                    getContactos();
+                   // getContactos();
 
                    /* var oTable = $('#tabla2').dataTable({
                         "bProcessing": true,
@@ -139,7 +139,7 @@
      <asp:HyperLink ID="HyperLink2" runat="server" 
          NavigateUrl="~/admin/home/login.aspx">Admin</asp:HyperLink><br />
      <asp:HyperLink ID="HyperLink3" runat="server" 
-         NavigateUrl="~/promotion/home_promotion.aspx">Promoción</asp:HyperLink>
+         NavigateUrl="~/promotion/home.aspx">Promoción</asp:HyperLink>
     </form>
 </body>
 </html>
