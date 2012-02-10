@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
-    <link rel="stylesheet" type="text/css" href="../Styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../Styles/style.css" />
 
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 
-    <script type="text/javascript" src="../Scripts/jquery-1.7.1.js"></script> 
-    <script type="text/javascript" src="../Scripts/jquery.form.js"></script>
-    <script type="text/javascript" src="../Scripts/jquery-ui.min.js "></script>
+    <script type="text/javascript" src="../../Scripts/jquery-1.7.1.js"></script> 
+    <script type="text/javascript" src="../../Scripts/jquery.form.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery-ui.min.js "></script>
     
 
         <script type="text/javascript">
@@ -107,7 +107,7 @@
 <body>
    <div class="container">
 
-        <form id="contactform" class="rounded" method="post" action="../admin/core/promotion/new.aspx">
+        <form id="contactform" class="rounded" method="post" action="../../admin/core/promotion/new.aspx">
             <h3>Nueva Promoción</h3>
             <div class="field">
 	            <label for="name">Nombre:</label>
@@ -132,6 +132,11 @@
   	            <input type="text" class="input" name="date_end" id="datepicker2" />
 	            <p class="hint">Fecha Fin.</p>
             </div>
+            <div class="field">
+	            <label for="state">Imágen:</label>
+  	            <input name="img" class="input" size="30" type="file" />
+	            <p class="hint">Imágen.</p>
+            </div>
 
             <div class="field">
 	            <label for="description">Descripción:</label>
@@ -142,7 +147,8 @@
             <input type="submit" name="Submit"  class="button" value="Crear" />
         </form>
 
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx">Regresar</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" 
+            NavigateUrl="~/admin/home/home_admin.aspx">Regresar</asp:HyperLink>
     </div>
     <div>
         <table id='tablaContactos'></table> 

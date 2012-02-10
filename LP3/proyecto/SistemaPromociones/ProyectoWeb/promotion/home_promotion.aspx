@@ -153,7 +153,9 @@
             <input type="submit" name="Submit"  class="button" value="Registrar" />
         </form>
 
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx">Regresar</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx">Regresar  </asp:HyperLink>
+        <asp:HyperLink ID="HyperLink2" runat="server" 
+            NavigateUrl="~/promotion/game.aspx">  Ir al Juego</asp:HyperLink>
     </div>
 
 

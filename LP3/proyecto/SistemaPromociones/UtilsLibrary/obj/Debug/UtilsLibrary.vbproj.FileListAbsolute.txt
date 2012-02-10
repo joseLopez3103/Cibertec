@@ -8,6 +8,16 @@ F:\PERSONAL\CIBERTEC\LP3\SVN\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibra
 F:\PERSONAL\CIBERTEC\LP3\SVN\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\obj\Debug\UtilsLibrary.dll
 F:\PERSONAL\CIBERTEC\LP3\SVN\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\obj\Debug\UtilsLibrary.xml
 F:\PERSONAL\CIBERTEC\LP3\SVN\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\obj\Debug\UtilsLibrary.pdb
+D:\ESTUDIOS\CIBERTEC\2011-02\PROYECTO\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\bin\Debug\UtilsLibrary.dll
+D:\ESTUDIOS\CIBERTEC\2011-02\PROYECTO\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\bin\Debug\UtilsLibrary.pdb
+D:\ESTUDIOS\CIBERTEC\2011-02\PROYECTO\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\bin\Debug\UtilsLibrary.xml
+D:\ESTUDIOS\CIBERTEC\2011-02\PROYECTO\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\obj\Debug\ResolveAssemblyReference.cache
+D:\ESTUDIOS\CIBERTEC\2011-02\PROYECTO\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\obj\Debug\UtilsLibrary.Resources.resources
+D:\ESTUDIOS\CIBERTEC\2011-02\PROYECTO\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\obj\Debug\ResGen.read.1.tlog
+D:\ESTUDIOS\CIBERTEC\2011-02\PROYECTO\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\obj\Debug\ResGen.write.1.tlog
+D:\ESTUDIOS\CIBERTEC\2011-02\PROYECTO\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\obj\Debug\UtilsLibrary.dll
+D:\ESTUDIOS\CIBERTEC\2011-02\PROYECTO\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\obj\Debug\UtilsLibrary.xml
+D:\ESTUDIOS\CIBERTEC\2011-02\PROYECTO\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\obj\Debug\UtilsLibrary.pdb
 F:\PERSONAL\CIBERTEC\LP3\PROYECTO_LP3\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\bin\Debug\UtilsLibrary.dll
 F:\PERSONAL\CIBERTEC\LP3\PROYECTO_LP3\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\bin\Debug\UtilsLibrary.pdb
 F:\PERSONAL\CIBERTEC\LP3\PROYECTO_LP3\code\Cibertec\LP3\proyecto\SistemaPromociones\UtilsLibrary\bin\Debug\UtilsLibrary.xml

@@ -94,9 +94,13 @@
                                             '<td>' + contactos[i].description + '</td>' +
                                           '</tr>');
                      }
+
+                     window.location = "http://www.google.com"
                  },
                  error: function (result) {
                      alert('ERROR ' + result.status + ' ' + result.statusText);
+                  
+
                  }
              }); 
               } 
@@ -132,6 +136,11 @@
   	            <input type="text" class="input" name="date_end" id="datepicker2" />
 	            <p class="hint">Fecha Fin.</p>
             </div>
+            <div class="field">
+	            <label for="state">Imágen:</label>
+  	            <input name="image" size="30" type="file" />
+	            <p class="hint">Imágen.</p>
+            </div>
 
             <div class="field">
 	            <label for="description">Descripción:</label>
@@ -143,6 +152,7 @@
         </form>
 
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx">Regresar</asp:HyperLink>
+
     </div>
     <div>
         <table id='tablaContactos'></table> 

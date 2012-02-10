@@ -2,6 +2,8 @@
 Imports BusinessEntities
 Imports BusinessLogicLayer
 Imports System.Diagnostics
+Imports System.IO
+
 
 Partial Class admin_core_promotion_new
     Inherits System.Web.UI.Page
@@ -15,11 +17,22 @@ Partial Class admin_core_promotion_new
             ' Response.Write(s & ": " & Request.Form(s) & "<br />")
             Debug.WriteLine(">> " + s + " " + Request.Form(s))
         Next
+        'files enviados ---
+        Dim hfc As HttpFileCollection = Request.Files
+        Dim hpf1 As HttpPostedFile = hfc(0)
+        Debug.WriteLine("hpf1 >>> " & hpf1.FileName)
+
+        'If hpf.ContentLength > 0 Then
+        '    hpf.SaveAs(Server.MapPath("MyFiles") & "\" & System.IO.Path.GetFileName(hpf.FileName))
+        '    Response.Write("<b>File: </b>" & hpf.FileName & " <b>Size:</b> " & hpf.ContentLength & " <b>Type:</b> " & hpf.ContentType & " Uploaded Successfully <br/>")
+        'End If
+
+        'files enviados -----
 
         Dim capanegocios As New PromotionBL
         Dim be As PromotionBE
         be = New PromotionBE
-        be.cod = 100
+        ' be.cod = 100
         be.nombre = Request.Form("name")
         be.estado = Request.Form("state")
         'Dim finit As String = String.Format("{0:dd/MM/yyyy}", Request.Form("date_init"))
@@ -30,15 +43,22 @@ Partial Class admin_core_promotion_new
         be.description = Request.Form("description")
 
         Try
-            If capanegocios.InsertPromotion(be) = True Then
+            Dim codGenerate As Integer = capanegocios.InsertPromotion(be)
 
-                str_mensaje = "Promoción registrada con éxito"
+            ' If capanegocios.InsertPromotion(be) <> -1 Then
+            If codGenerate <> -1 Then
+
+                str_mensaje = "Promoción registrada con éxito " & codGenerate
                 Debug.WriteLine(str_mensaje)
 
                 Dim script As String = "<script language=Javascript>"
                 script += "alert('" & str_mensaje & "');"
                 script += "</script>"
                 Page.ClientScript.RegisterStartupScript(Me.GetType(), "script", script)
+
+                Dim nfolder As String = MapPath(".") & "\..\..\promotions\" & codGenerate.ToString()
+                Directory.CreateDirectory(nfolder)
+                hpf1.SaveAs(nfolder & "\" & System.IO.Path.GetFileName(hpf1.FileName))
 
             Else
 

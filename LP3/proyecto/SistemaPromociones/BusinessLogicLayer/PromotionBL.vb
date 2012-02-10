@@ -5,7 +5,8 @@ Public Class PromotionBL
 
     Dim promotion As New PromotionDAO
 
-    Public Function InsertPromotion(ByVal objeto As BE.PromotionBE) As Boolean
+    'Public Function InsertPromotion(ByVal objeto As BE.PromotionBE) As Boolean
+    Public Function InsertPromotion(ByVal objeto As BE.PromotionBE) As Integer
 
         Return promotion.InsertPromotion(objeto)
 

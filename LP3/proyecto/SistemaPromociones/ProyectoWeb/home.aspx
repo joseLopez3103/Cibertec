@@ -137,7 +137,7 @@
             NavigateUrl="~/admin/core/promotion/all.aspx">Listado Promociones</asp:HyperLink>   -->
     </div>
      <asp:HyperLink ID="HyperLink2" runat="server" 
-         NavigateUrl="~/admin/promotion/login.aspx">Admin</asp:HyperLink><br />
+         NavigateUrl="~/admin/home/login.aspx">Admin</asp:HyperLink><br />
      <asp:HyperLink ID="HyperLink3" runat="server" 
          NavigateUrl="~/promotion/home_promotion.aspx">Promoción</asp:HyperLink>
     </form>

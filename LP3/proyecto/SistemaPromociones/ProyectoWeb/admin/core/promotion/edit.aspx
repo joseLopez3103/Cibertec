@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="login.aspx.vb" Inherits="admin_promotion_login" %>
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="edit.aspx.vb" Inherits="admin_core_promotion_edit" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -9,9 +9,6 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
-        <asp:HyperLink ID="HyperLink1" runat="server" 
-            NavigateUrl="~/admin/home/home_admin.aspx">Ingresar Admin</asp:HyperLink>
     
     </div>
     </form>

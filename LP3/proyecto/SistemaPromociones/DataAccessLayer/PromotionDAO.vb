@@ -1,6 +1,8 @@
 ﻿Imports BE = BusinessEntities
 Imports System.Data
 Imports System.Data.SqlClient
+Imports System.Data.SqlClient.SqlDataReader
+
 
 
 Public Class PromotionDAO
@@ -11,15 +13,19 @@ Public Class PromotionDAO
     Dim cn As New Conexion
 
     Dim bool_resultado As Boolean
+    Dim cod_generate As Integer
     Dim cmd As SqlCommand
 
 
-    Public Function InsertPromotion(ByVal objeto As BE.PromotionBE) As Boolean
+    'Public Function InsertPromotion(ByVal objeto As BE.PromotionBE) As Boolean
+    Public Function InsertPromotion(ByVal objeto As BE.PromotionBE) As Integer
 
         'Instanciamos la clase conexion
         Dim cn As New Conexion
+        Dim dr As SqlDataReader
+
         Try
-            Conexion = cn.Conectar
+            conexion = cn.Conectar
 
             ' cmd = New SqlCommand("sp_new_promotion", conexion)
             cmd = New SqlCommand(Config.newPromotion, conexion)
@@ -46,26 +52,37 @@ Public Class PromotionDAO
             cmd.Parameters("@description").Direction = ParameterDirection.Input
             cmd.Parameters("@description").Value = objeto.description
 
+            conexion.Open()
 
-            Conexion.Open()
+            'cmd.ExecuteNonQuery()
+            dr = cmd.ExecuteReader
+            ' cod_generate = Integer.Parse(dr(0).ToString())
+            While dr.Read
+                'Debug.WriteLine("read " + dr(0).ToString())
+                cod_generate = Integer.Parse(dr(0))
+            End While
 
-            cmd.ExecuteNonQuery()
+            Debug.WriteLine("promotioDAO  " & cod_generate)
+
+            dr.Close()
             bool_resultado = True
 
         Catch ex As Exception
             bool_resultado = False
+            cod_generate = -1
             str_error = ex.Message
-            Debug.WriteLine("error "+str_error)
+            Debug.WriteLine("error " + str_error)
         Finally
 
-            If Conexion.State = ConnectionState.Open Then Conexion.Close()
-            Conexion.Dispose()
+            If conexion.State = ConnectionState.Open Then conexion.Close()
+            conexion.Dispose()
             cmd.Dispose()
             cn = Nothing
 
         End Try
 
-        Return bool_resultado
+        ' Return bool_resultado
+        Return cod_generate
 
     End Function
 
