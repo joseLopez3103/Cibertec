@@ -31,6 +31,7 @@
             }
         );
 
+
             function getPromotions() {
                 $.post("http://localhost:51823/test1/admin/core/promotion/all.aspx", {},
                     function (data) 
@@ -40,17 +41,19 @@
                         ndata = data;
                         var s = ""
                         s += '<div class="clear"></div>';
+                        var scover = ""
+
                         var count = 0;
 
                         for (var i = 0; i < promociones.length; i++) 
                         {
                             count++
                             s += '<div class="grid_4 episode thumbnail">' +
-                             '<a href="promotion.aspx" title="' + promociones[i].nombre + '">' +
+                             '<a href="promotion.aspx?id='+ promociones[i].estado + '&cod='+promociones[i].cod+'" class="itm" title="' + promociones[i].nombre + '">' +
                              '<img alt="" class="picture shadow" height="162" src="' + 'http://localhost:51823/test1/admin' + promociones[i].url_img + '" width="288">'+
                              '</a>' +
-                            '<h3>path '+promociones[i].nombre+'<span></span>'+
-                            '</h3>'+
+                            '<h3><b>'+promociones[i].nombre+'<span></span>'+
+                            '</b></h3>'+
                             '<h4></h4>'+
                             '<p>' + promociones[i].description + '</p>' +
                             '</div>';
@@ -58,8 +61,15 @@
                             if (count%3== 0 && i != 0) {
                                 s += '<div class="clear"></div>'
                             }
+
+                            scover += '<a href="promotion.aspx?id=' + promociones[i].estado + '&cod=' + promociones[i].cod +
+                            '"> <img src="' + 'http://localhost:51823/test1/admin' + promociones[i].url_img + '" alt="image01"><div>' + promociones[i].nombre + '</div></a>'
+
                         }
                         $('#home_grid').html(s)
+                        $('#dg-coverflow').html(scover)
+
+                        $('#dg-container').gallery();
 
                     },
                     "json");
@@ -70,27 +80,15 @@
 <div id="header">
   <div class="container_12">
     <div class="grid_2">
-      <a href="/" title="5by5"><img alt="5by5" height="62" src="../Pictures/headers/5by5.png" width="150">
-      </a>
+      <h2>PROMOCIONES </h2>
     </div>
     <div class="container">
       <header>
         <h1></h1>
       </header>
       <section id="dg-container" class="dg-container">
-          <div class="dg-wrapper">
-              <a href="#"><img src="../Pictures/1.jpg" alt="image01"><div>http://www.colazionedamichy.it/</div></a>
-              <a href="#"><img src="../Pictures/2.jpg" alt="image02"><div>http://www.percivalclo.com/</div></a>
-              <a href="#"><img src="../Pictures/3.jpg" alt="image03"><div>http://www.wanda.net/fr</div></a>
-              <a href="#"><img src="../Pictures/4.jpg" alt="image04"><div>http://lifeingreenville.com/</div></a>
-              <a href="#"><img src="../Pictures/5.jpg" alt="image05"><div>http://circlemeetups.com/</div></a>
-              <a href="#"><img src="../Pictures/6.jpg" alt="image06"><div>http://www.castirondesign.com/</div></a>
-              <a href="#"><img src="../Pictures/7.jpg" alt="image07"><div>http://www.foundrycollective.com/</div></a>
-              <a href="#"><img src="../Pictures/8.jpg" alt="image08"><div>http://www.mathiassterner.com/home</div></a>
-              <a href="#"><img src="../Pictures/9.jpg" alt="image09"><div>http://learnlakenona.com/</div></a>
-              <a href="#"><img src="../Pictures/10.jpg" alt="image10"><div>http://www.neighborhood-studio.com/</div></a>
-              <a href="#"><img src="../Pictures/11.jpg" alt="image11"><div>http://www.beckindesign.com/</div></a>
-              <a href="#"><img src="../Pictures/12.jpg" alt="image12"><div>http://kicksend.com/</div></a>
+          <div id="dg-coverflow" class="dg-wrapper">
+
         </div>
         <nav> 
           <span class="dg-prev">&lt;</span>
@@ -100,11 +98,7 @@
         </div>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../Scripts/jquery.gallery.js"></script>
-    <script type="text/javascript">
-      $(function() {
-        $('#dg-container').gallery();
-      });
-    </script/>
+
 
   </div>
 </div>

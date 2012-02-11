@@ -15,5 +15,9 @@
 
     Public Shared validateUser As String = "sp_validate_user"
 
+    'Admin ---
+    'sp_validate_admin
+    Public Shared sp_validate_admin As String = "sp_validate_admin"
+
 
 End Class

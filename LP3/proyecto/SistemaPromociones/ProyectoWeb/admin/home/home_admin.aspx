@@ -4,19 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-
-
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-
-    <script type="text/javascript" src="../../Scripts/jquery-1.7.1.js"></script> 
-    <script type="text/javascript" src="../../Scripts/jquery.form.js"></script>
-    <script type="text/javascript" src="../../Scripts/jquery-ui.min.js "></script>
-
-    <link rel="stylesheet" href="../../Styles/style.css" type="text/css" media="screen"/>
-    
     <script type="text/javascript" language="javascript" src="../../Scripts/jquery.dataTables.js"></script>
 
     <title></title>
+    <% Response.WriteFile("header.inc") %>
+
             <script type="text/javascript">
                 // wait for the DOM to be loaded
 
@@ -63,23 +55,41 @@
             </script>
 </head>
 <body>
-     <form id="form1" runat="server">
-        <div>
-    
-            Sistema de Promociones<br />
-            <asp:HyperLink  runat="server" 
-                NavigateUrl="~/admin/home/new_promotion.aspx">Nueva Promoción</asp:HyperLink>
-            <br />
-           <!-- <asp:HyperLink ID="hlNew" runat="server" 
-                NavigateUrl="~/promotion/new_promotion.aspx">Nuevo</asp:HyperLink>
-            <br />  
-                <asp:HyperLink ID="HyperLink1" runat="server" 
-                NavigateUrl="~/admin/core/promotion/all.aspx">Listado Promociones</asp:HyperLink>   -->
-        </div>
-    </form>
 
-    <div>
-        <table id='tablaContactos' class="table2"></table> <br />
+    <div id="header">
+        <div class="container_12">
+            <div class="grid_2">
+                <div class="container">
+
+                 <form id="form1" runat="server">
+                    <div>
+    
+                        Sistema de Promociones<br />
+                        <asp:HyperLink ID="HyperLink1"  runat="server" 
+                            NavigateUrl="~/admin/home/new_promotion.aspx">Nueva Promoción</asp:HyperLink>
+                        <br />
+                    </div>
+                  </form>
+                  <div>
+                        <table id='tablaContactos' class="table2"></table> <br />
+                  </div>
+
+                  <asp:HyperLink ID="hlink4" runat="server" 
+                     NavigateUrl="~/home.aspx">Regresar</asp:HyperLink>
+                </div>
+            </div>   
+        </div>
     </div>
-</body>
+        <div id="content" class="episodes" >
+            <div id="home_grid" class="container_12">
+                <div id="home" class="grid_12">
+                    
+                </div>
+            </div>
+        </div>
+    
+    <!--  footer  -->
+    <% Response.WriteFile("footer.inc") %>
+
+    </body>
 </html>

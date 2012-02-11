@@ -68,8 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBE.vb" />
-    <Compile Include="ClienteBE.vb" />
-    <Compile Include="FacturaBE.vb" />
+    <None Include="ordenar\ClienteBE.vb_" />
+    <None Include="ordenar\FacturaBE.vb_" />
+    <Compile Include="AccessBE.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -85,7 +86,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ProductoBE.vb" />
+    <None Include="ordenar\ProductoBE.vb_" />
     <Compile Include="PromotionBE.vb" />
     <Compile Include="TestBE.vb" />
     <Compile Include="UserBE.vb" />
